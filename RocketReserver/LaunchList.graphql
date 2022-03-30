@@ -1,0 +1,10 @@
+query launchList {
+  launches {
+    cursor
+    hasMore
+    launches {
+      id
+      site
+    }
+  }
+}
