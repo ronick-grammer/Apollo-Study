@@ -19,18 +19,19 @@ class DetailViewController: UIViewController {
     
     var launchID: GraphQLID? {
       didSet {
-        self.configureView()
+        self.loadLaunchDetails()
       }
     }
     
     func configureView() {
         guard
-            self.missionNameLabel != nil else {
-                return
+            let label = self.missionNameLabel,
+            let id = self.launchID else {
+            return
         }
         
-        self.missionNameLabel.text = "Placeholder"
-        // TODO: Update UI based on Launch details
+        
+        label.text = "Launch \(id)"
         // TODO: Adjust UI based on whether a trip is booked or not
     }
     

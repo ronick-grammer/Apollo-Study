@@ -6,10 +6,16 @@
 //  Copyright © 2019 Apollo GraphQL. All rights reserved.
 //
 
+import SDWebImage
 import UIKit
+
+enum ListSection: Int, CaseIterable {
+  case launches
+}
 
 class LaunchesViewController: UITableViewController {
     
+    var launches = [LaunchListQuery.Data.Launch.Launch]()
     var detailViewController: DetailViewController? = nil
     
     override func viewDidLoad() {
@@ -44,15 +50,30 @@ class LaunchesViewController: UITableViewController {
             return
         }
     
-        // TODO: Handle setting which launch was selected
-        guard
-            let destination = segue.destination as? UINavigationController,
-            let detail = destination.topViewController as? DetailViewController else {
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else {
+            // Nothing is selected, nothing to do
+            return
+        }
+        
+        guard let listSection = ListSection(rawValue: selectedIndexPath.section) else {
+            assertionFailure("Invalid section")
+            return
+        }
+        
+        switch listSection {
+        case .launches:
+            guard
+                let destination = segue.destination as? UINavigationController,
+                let detail = destination.topViewController as? DetailViewController else {
                 assertionFailure("Wrong kind of destination")
                 return
             }
+            
+            let launch = self.launches[selectedIndexPath.row]
+            detail.launchID = launch.id
+            self.detailViewController = detail
+        }
     
-        self.detailViewController = detail
     }
     
     // MARK: - IBActions
@@ -69,25 +90,81 @@ class LaunchesViewController: UITableViewController {
     // MARK: - Table View
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return ListSection.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        guard let listSection = ListSection(rawValue: section) else {
+            assertionFailure("Invalid section")
+            return 0
+          }
+                
+          switch listSection {
+          case .launches:
+            return self.launches.count
+          }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.imageView?.image = nil
+        cell.textLabel?.text = nil
+        cell.detailTextLabel?.text = nil
         
+        guard let listSection = ListSection(rawValue: indexPath.section) else {
+            assertionFailure("Invalid section")
+            return cell
+        }
         
-        // TODO: Configure
-        cell.textLabel?.text = "Placeholder"
+        switch listSection {
+        case .launches:
+            let launch = self.launches[indexPath.row]
+            cell.textLabel?.text = launch.mission?.name
+            cell.detailTextLabel?.text = launch.site
+            
+            let placeholder = UIImage(named: "placeholder")!
+            
+            if let missionPatch = launch.mission?.missionPatch {
+                cell.imageView?.sd_setImage(with: URL(string: missionPatch), placeholderImage: placeholder)
+            } else {
+                cell.imageView?.image = placeholder
+            }
+        }
         
         return cell
     }
     
     private func loadLaunches() {
-        // TODO: Load a list of launches
+        Network.shared.apollo
+            .fetch(query: LaunchListQuery()) { [weak self] result in
+                
+                guard let self = self else {
+                    return
+                }
+                
+                defer {
+                    self.tableView.reloadData()
+                }
+                
+                switch result {
+                case .success(let graphQLResult):
+                    if let launchConnection = graphQLResult.data?.launches {
+                        self.launches.append(contentsOf: launchConnection.launches.compactMap { $0 })
+                    }
+                    
+                    if let errors = graphQLResult.errors {
+                        let message = errors
+                            .map { $0.localizedDescription }
+                            .joined(separator: "\n")
+                        self.showAlert(title: "GraphQL Error(s)",
+                                       message: message)
+                    }
+                case .failure(let error):
+                    // From `UIViewController+Alert.swift`
+                    self.showAlert(title: "Network Error",
+                                   message: error.localizedDescription)
+                }
+            }
     }
 }
 
