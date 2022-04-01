@@ -24,6 +24,7 @@
 		D4A987C427EA114D00F84A63 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = D4A987C327EA114D00F84A63 /* ApolloWebSocket */; };
 		D4D118C527ECC34F00FF9783 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D118C427ECC34F00FF9783 /* API.swift */; };
 		D4D118C727ECC54100FF9783 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D118C627ECC54100FF9783 /* Network.swift */; };
+		D4E8F0C827F5CD0500F52119 /* LaunchDetails.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D4E8F0C727F5CD0500F52119 /* LaunchDetails.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		D4D118C327ECBE8B00FF9783 /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
 		D4D118C427ECC34F00FF9783 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D4D118C627ECC54100FF9783 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		D4E8F0C727F5CD0500F52119 /* LaunchDetails.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchDetails.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				D4D118C427ECC34F00FF9783 /* API.swift */,
 				D4D118C227EB636700FF9783 /* schema.json */,
 				D4D118C327ECBE8B00FF9783 /* LaunchList.graphql */,
+				D4E8F0C727F5CD0500F52119 /* LaunchDetails.graphql */,
 				D4D118C027EB633100FF9783 /* SceneDelegate.swift */,
 				9B8B0EF5237CE6A8001326EB /* AppDelegate.swift */,
 				9B8B0EF7237CE6A8001326EB /* SceneDelegate.swift */,
@@ -175,6 +178,7 @@
 				9B8B0F04237CE6AB001326EB /* LaunchScreen.storyboard in Resources */,
 				9B8B0F01237CE6AB001326EB /* Assets.xcassets in Resources */,
 				9B8B0EFF237CE6A8001326EB /* Main.storyboard in Resources */,
+				D4E8F0C827F5CD0500F52119 /* LaunchDetails.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HLNWXJ8WJ4;
 				INFOPLIST_FILE = RocketReserver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,6 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HLNWXJ8WJ4;
 				INFOPLIST_FILE = RocketReserver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
