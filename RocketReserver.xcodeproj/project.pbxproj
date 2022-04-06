@@ -20,6 +20,11 @@
 		9B8B0F01237CE6AB001326EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B0F00237CE6AB001326EB /* Assets.xcassets */; };
 		9B8B0F04237CE6AB001326EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B0F02237CE6AB001326EB /* LaunchScreen.storyboard */; };
 		9B97EF1E237E0D9C00A714ED /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9B97EF1D237E0D9C00A714ED /* SDWebImage */; };
+		D488155B27FDA479005C52C7 /* Login.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D488155A27FDA479005C52C7 /* Login.graphql */; };
+		D488155D27FDAD93005C52C7 /* TokenAddingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488155C27FDAD93005C52C7 /* TokenAddingInterceptor.swift */; };
+		D488155F27FDB729005C52C7 /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488155E27FDB729005C52C7 /* NetworkInterceptorProvider.swift */; };
+		D488156127FDC0D8005C52C7 /* BookTrip.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D488156027FDC0D8005C52C7 /* BookTrip.graphql */; };
+		D488156327FDC6B3005C52C7 /* CancelTrip.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D488156227FDC6B3005C52C7 /* CancelTrip.graphql */; };
 		D4A987C227EA114D00F84A63 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = D4A987C127EA114D00F84A63 /* Apollo */; };
 		D4A987C427EA114D00F84A63 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = D4A987C327EA114D00F84A63 /* ApolloWebSocket */; };
 		D4D118C527ECC34F00FF9783 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D118C427ECC34F00FF9783 /* API.swift */; };
@@ -41,6 +46,11 @@
 		9B8B0F00237CE6AB001326EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B8B0F03237CE6AB001326EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B8B0F05237CE6AB001326EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D488155A27FDA479005C52C7 /* Login.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Login.graphql; sourceTree = "<group>"; };
+		D488155C27FDAD93005C52C7 /* TokenAddingInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddingInterceptor.swift; sourceTree = "<group>"; };
+		D488155E27FDB729005C52C7 /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
+		D488156027FDC0D8005C52C7 /* BookTrip.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = BookTrip.graphql; sourceTree = "<group>"; };
+		D488156227FDC6B3005C52C7 /* CancelTrip.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CancelTrip.graphql; sourceTree = "<group>"; };
 		D4D118C027EB633100FF9783 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D4D118C227EB636700FF9783 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		D4D118C327ECBE8B00FF9783 /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
@@ -87,6 +97,10 @@
 				D4D118C227EB636700FF9783 /* schema.json */,
 				D4D118C327ECBE8B00FF9783 /* LaunchList.graphql */,
 				D4E8F0C727F5CD0500F52119 /* LaunchDetails.graphql */,
+				D488155A27FDA479005C52C7 /* Login.graphql */,
+				D4D118C627ECC54100FF9783 /* Network.swift */,
+				D488155E27FDB729005C52C7 /* NetworkInterceptorProvider.swift */,
+				D488155C27FDAD93005C52C7 /* TokenAddingInterceptor.swift */,
 				D4D118C027EB633100FF9783 /* SceneDelegate.swift */,
 				9B8B0EF5237CE6A8001326EB /* AppDelegate.swift */,
 				9B8B0EF7237CE6A8001326EB /* SceneDelegate.swift */,
@@ -100,7 +114,8 @@
 				9B8B0F00237CE6AB001326EB /* Assets.xcassets */,
 				9B8B0F02237CE6AB001326EB /* LaunchScreen.storyboard */,
 				9B8B0F05237CE6AB001326EB /* Info.plist */,
-				D4D118C627ECC54100FF9783 /* Network.swift */,
+				D488156027FDC0D8005C52C7 /* BookTrip.graphql */,
+				D488156227FDC6B3005C52C7 /* CancelTrip.graphql */,
 			);
 			path = RocketReserver;
 			sourceTree = "<group>";
@@ -176,7 +191,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B8B0F04237CE6AB001326EB /* LaunchScreen.storyboard in Resources */,
+				D488156127FDC0D8005C52C7 /* BookTrip.graphql in Resources */,
 				9B8B0F01237CE6AB001326EB /* Assets.xcassets in Resources */,
+				D488156327FDC6B3005C52C7 /* CancelTrip.graphql in Resources */,
+				D488155B27FDA479005C52C7 /* Login.graphql in Resources */,
 				9B8B0EFF237CE6A8001326EB /* Main.storyboard in Resources */,
 				D4E8F0C827F5CD0500F52119 /* LaunchDetails.graphql in Resources */,
 			);
@@ -214,7 +232,9 @@
 				9B685F56238BE71F0084DA15 /* LoginViewController.swift in Sources */,
 				9B8B0EF6237CE6A8001326EB /* AppDelegate.swift in Sources */,
 				9B8B0EF8237CE6A8001326EB /* SceneDelegate.swift in Sources */,
+				D488155D27FDAD93005C52C7 /* TokenAddingInterceptor.swift in Sources */,
 				9B8B0EFA237CE6A8001326EB /* LaunchesViewController.swift in Sources */,
+				D488155F27FDB729005C52C7 /* NetworkInterceptorProvider.swift in Sources */,
 				9B8B0EFC237CE6A8001326EB /* DetailViewController.swift in Sources */,
 				9B0705F923AC34CB00DCA904 /* ProfileViewController.swift in Sources */,
 				9B4AA8AA239BDDB7003E1300 /* UIViewController+Alert.swift in Sources */,
