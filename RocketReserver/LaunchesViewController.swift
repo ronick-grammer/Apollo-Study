@@ -19,18 +19,52 @@ class LaunchesViewController: UITableViewController {
     
     private var lastConnection: LaunchListQuery.Data.Launch?
     private var activeRequest: Cancellable?
+    private var activeSubscription: Cancellable?
     
     var launches = [LaunchListQuery.Data.Launch.Launch]()
     var detailViewController: DetailViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.startSubscription()
         self.loadMoreLaunchesIfTheyExist()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+    }
+    
+    private func startSubscription() {
+        activeSubscription = Network.shared.apollo.subscribe(subscription: TripsBookedSubscription()) { result in
+            switch result {
+            case .failure(let error):
+                self.showAlert(title: "NetworkError", message: error.localizedDescription)
+            case .success(let graphQLResult):
+                if let errors = graphQLResult.errors {
+                    self.showAlertForErrors(errors)
+                } else if let tripsBooked = graphQLResult.data?.tripsBooked {
+                    self.handleTripsBooked(value: tripsBooked)
+                } else {
+                    
+                }
+            }
+        }
+    }
+    
+    private func handleTripsBooked(value: Int) {
+        var message: String
+        switch value {
+        case 1:
+            message = "A new trip was booked! 🚀"
+        case -1:
+            message = "A trip was cancelled! 😭"
+        default:
+            self.showAlert(title: "Unexpected value", message: "Subscription return expected value: \(value)")
+            return
+        }
+        
+        NotificationView.show(in: self.navigationController!.view, with: message, for: 4.0)
     }
     
     // MARK: - Segues

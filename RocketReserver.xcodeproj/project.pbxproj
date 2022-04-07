@@ -27,6 +27,7 @@
 		D488156327FDC6B3005C52C7 /* CancelTrip.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D488156227FDC6B3005C52C7 /* CancelTrip.graphql */; };
 		D4A987C227EA114D00F84A63 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = D4A987C127EA114D00F84A63 /* Apollo */; };
 		D4A987C427EA114D00F84A63 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = D4A987C327EA114D00F84A63 /* ApolloWebSocket */; };
+		D4C9F01127FE64FF002CD55A /* TripsBooked.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D4C9F01027FE64FE002CD55A /* TripsBooked.graphql */; };
 		D4D118C527ECC34F00FF9783 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D118C427ECC34F00FF9783 /* API.swift */; };
 		D4D118C727ECC54100FF9783 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D118C627ECC54100FF9783 /* Network.swift */; };
 		D4E8F0C827F5CD0500F52119 /* LaunchDetails.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D4E8F0C727F5CD0500F52119 /* LaunchDetails.graphql */; };
@@ -51,6 +52,7 @@
 		D488155E27FDB729005C52C7 /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
 		D488156027FDC0D8005C52C7 /* BookTrip.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = BookTrip.graphql; sourceTree = "<group>"; };
 		D488156227FDC6B3005C52C7 /* CancelTrip.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CancelTrip.graphql; sourceTree = "<group>"; };
+		D4C9F01027FE64FE002CD55A /* TripsBooked.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = TripsBooked.graphql; sourceTree = "<group>"; };
 		D4D118C027EB633100FF9783 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D4D118C227EB636700FF9783 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		D4D118C327ECBE8B00FF9783 /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				9B8B0F05237CE6AB001326EB /* Info.plist */,
 				D488156027FDC0D8005C52C7 /* BookTrip.graphql */,
 				D488156227FDC6B3005C52C7 /* CancelTrip.graphql */,
+				D4C9F01027FE64FE002CD55A /* TripsBooked.graphql */,
 			);
 			path = RocketReserver;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				D488156327FDC6B3005C52C7 /* CancelTrip.graphql in Resources */,
 				D488155B27FDA479005C52C7 /* Login.graphql in Resources */,
 				9B8B0EFF237CE6A8001326EB /* Main.storyboard in Resources */,
+				D4C9F01127FE64FF002CD55A /* TripsBooked.graphql in Resources */,
 				D4E8F0C827F5CD0500F52119 /* LaunchDetails.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
